@@ -24,9 +24,22 @@ for url in urls:
          title = soup.find("div", {"class":"poster"}).a.img["title"]
          imgLink = soup.find("div", {"class":"poster"}).a.img["src"]
          sinopse = soup.find("div", {"class":"summary_text"}).get_text()
-         print(sinopse)
+
+         title = title.replace(' ', '-')
+         title = title.replace(':','-')
+         extension = imgLink[-3:]
+         name = title+'.'+extension
+         path = "img/"+name
          print("Baixando poster de", title)
-         img = urllib.request.urlretrieve(imgLink, "imagens2/"+title+".jpg")
+         img = urllib.request.urlretrieve(imgLink, path)
+
+         print("URL:",url)
+         print("Name:",name)
+         print("ImgLink:",imgLink)
+         print("Path:", path)
+                  
          print("Poster baixado\n")
+
+         
 print(qnt," poster(s) baixados")
 
