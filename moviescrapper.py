@@ -24,6 +24,6 @@ for url in urls:
          title = soup.find("div", {"class":"poster"}).a.img["title"]
          imgLink = soup.find("div", {"class":"poster"}).a.img["src"]
          print("Baixando poster de", title)
-         img = urllib.request.urlretrieve(imgLink, "imgs/"+title+".jpg")
+         img = urllib.request.urlretrieve(imgLink, "posters/"+title+".jpg")
          print("Poster baixado\n")
 print(qnt," poster(s) baixados")
